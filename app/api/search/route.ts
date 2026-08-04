@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
       ].filter(Boolean))
     ]);
 
-    const results = [];
+    const results: any[] = [];
 
     // Filter Reminders (Date, Day, Notes)
     remindersData.forEach(row => {
