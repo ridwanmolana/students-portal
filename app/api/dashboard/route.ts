@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { NextResponse } from "next/server";
 import { getSheetRows } from "@/lib/google-sheets";
 
@@ -116,11 +117,7 @@ export async function GET() {
       }
     }
     
-    // Fallback for testing if no birthday is found today
-    if (!birthdayStudent) {
-      // birthdayStudent = "Budi (Test)"; // Uncomment to force a test birthday!
-    }
-
+    // If no birthday is found today, birthdayStudent will remain null.
     return NextResponse.json({
       success: true,
       data: {
