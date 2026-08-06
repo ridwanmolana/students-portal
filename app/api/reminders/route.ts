@@ -21,8 +21,8 @@ export async function GET(request: NextRequest) {
     }));
 
     // Group by Date for 7-day pagination
-    // 1. Get unique dates
-    const uniqueDates = Array.from(new Set(allReminders.map(r => r.date)));
+    // 1. Get unique dates (Reversed so latest/last 7 days are on the first page)
+    const uniqueDates = Array.from(new Set(allReminders.map(r => r.date))).reverse();
     
     // 2. Pagination calculation
     const totalDays = uniqueDates.length;
